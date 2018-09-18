@@ -1,14 +1,17 @@
 
 
-import java.util.Optional;
-
-import org.easymock.*;
+import org.easymock.Capture;
+import org.easymock.EasyMock;
+import org.easymock.EasyMockRule;
+import org.easymock.EasyMockSupport;
+import org.easymock.Mock;
+import org.easymock.TestSubject;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 
 
-public class contactServiceMockTest extends EasyMockSupport{
+public class ContactServiceMockTest extends EasyMockSupport{
 
 	@Rule
 	public EasyMockRule rule = new EasyMockRule(this);
@@ -46,7 +49,7 @@ public class contactServiceMockTest extends EasyMockSupport{
 		Contact contact = new Contact();
 		contact.setName("Toto");
 		EasyMock.expect(contactDao.findByName("LaPhraseQueJeVeux")).andReturn(contact);
-		Capture<Contact> newCapture = EasyMock.newCapture();
+		Capture<Contact> newCapture = (Capture) EasyMock.newCapture();
 		contactDao.remove(EasyMock.capture(newCapture));
 		// 2 - Fin d'enregistrement
 		replayAll();

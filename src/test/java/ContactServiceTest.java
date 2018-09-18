@@ -14,7 +14,7 @@ public class ContactServiceTest {
             Assert.fail("Aurait du passer dans l'exception");
         } catch (ContactException e) {
 
-            // Ok tout s'est bien passé
+            // Ok tout s'est bien passe
         }
     }
 

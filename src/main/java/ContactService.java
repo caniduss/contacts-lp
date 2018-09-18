@@ -9,10 +9,10 @@ public class ContactService {
 			Contact contact = new Contact();
 			contact.setName(name);
 			dao.add(contact);
-			System.out.println("Le contact a ÈtÈ ajoutÈ");
+			System.out.println("Le contact a √©t√© ajout√©");
 		}
 		else{
-			throw new ContactException("Impossible de crÈer le contact");
+			throw new ContactException("Impossible de cr√©er le contact");
 		}
 		
 	}
@@ -34,11 +34,11 @@ public class ContactService {
 		boolean val= true;
 		if(name==null ||name.length()<3 || name.length()>40){
 			val=false;	
-			throw new ContactException("Impossible de crÈer le contact, nom invalide");
+			throw new ContactException("Impossible de cr√©er le contact, nom invalide");
 		}
 		if(val==true && dao.findByName(name) != null ){
 			val=false;
-			throw new ContactException("Impossible de crÈer le contact, nom dÈj‡ connu");
+			throw new ContactException("Impossible de cr√©er le contact, nom d√©j√† connu");
 		}
 		return val;
 	}
